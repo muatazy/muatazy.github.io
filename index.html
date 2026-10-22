@@ -1,19 +1,620 @@
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muataz Yahya | Robotics & AI</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-950 text-slate-100">
-<header class="max-w-6xl mx-auto px-6 py-6 flex justify-between"><strong class="text-xl">MY<span class="text-cyan-400">.</span></strong><nav class="space-x-5 text-slate-300"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav></header>
-<main>
-<section class="max-w-6xl mx-auto px-6 py-24"><p class="text-cyan-400 font-bold tracking-widest">ROBOTICS · AI · AUTONOMOUS SYSTEMS</p><h1 class="text-5xl md:text-7xl font-black mt-5">Muataz Yahya</h1><p class="text-xl md:text-2xl text-slate-300 mt-6 max-w-3xl">2nd-Year Robotics & AI Engineering Student at Harbin Institute of Technology, Shenzhen (HITSZ).</p><p class="text-slate-400 mt-5 max-w-2xl leading-7">I build intelligent systems at the intersection of robotics, computer vision, machine learning, and embedded engineering.</p><a class="inline-block mt-8 bg-cyan-400 text-slate-950 font-bold px-5 py-3 rounded-lg" href="#projects">View projects</a></section>
-<section id="about" class="border-y border-slate-800 bg-slate-900/60"><div class="max-w-6xl mx-auto px-6 py-16"><h2 class="text-3xl font-bold">About me</h2><p class="text-slate-300 max-w-3xl mt-5 leading-8">Passionate about autonomous robots, intelligent perception, control systems, and practical AI. Arabic (Native), English (Advanced C1 — DET 124 / TOEFL PBT 620), and Mandarin Chinese.</p></div></section>
-<section id="skills" class="max-w-6xl mx-auto px-6 py-16"><h2 class="text-3xl font-bold">Engineering toolkit</h2><p class="text-cyan-300 mt-8 leading-8">Python · C++ · C · ROS2 · OpenCV · PyTorch · TensorFlow · Embedded Systems / Arduino · Linux · Git · Tailwind CSS</p></section>
-<section id="projects" class="bg-slate-900/60"><div class="max-w-6xl mx-auto px-6 py-16"><h2 class="text-3xl font-bold">Selected projects</h2><div class="grid md:grid-cols-3 gap-5 mt-8"><article class="border border-slate-800 rounded-2xl p-6"><h3 class="font-bold text-xl">Autonomous Mobile Robot Navigation</h3><p class="text-slate-400 mt-3">ROS2, C++, Python, SLAM, path planning and obstacle avoidance.</p></article><article class="border border-slate-800 rounded-2xl p-6"><h3 class="font-bold text-xl">Real-Time Vision & Tracking</h3><p class="text-slate-400 mt-3">Python, OpenCV and PyTorch for robotic perception.</p></article><article class="border border-slate-800 rounded-2xl p-6"><h3 class="font-bold text-xl">HITSZ Robotics & AI Coursework</h3><p class="text-slate-400 mt-3">Data structures, control systems, algorithms and AI labs.</p></article></div></div></section>
-<section id="contact" class="max-w-6xl mx-auto px-6 py-20"><h2 class="text-3xl font-bold">Let's connect</h2><p class="text-slate-300 mt-5">WeChat: Muataz7705 · WhatsApp: Muataz7705 · <a class="text-cyan-400" href="mailto:muataz7705@gmail.com">muataz7705@gmail.com</a> · Shenzhen, China</p></section>
-</main><footer class="border-t border-slate-800 text-center text-slate-500 py-8">© 2026 Muataz Yahya</footer>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Muataz Yahya | Robotics &amp; AI Engineering</title>
+<meta content="Muataz Yahya is a second-year Robotics &amp; Artificial Intelligence Engineering student at HITSZ, documenting a learning journey in programming and intelligent systems." name="description"/>
+<style>
+    :root {
+      --bg-primary: #0B0F19;
+      --bg-elevated: #111827;
+      --bg-card: #161F33;
+      --border-subtle: rgba(148, 163, 184, 0.14);
+      --border-accent: rgba(6, 182, 212, 0.45);
+      --accent: #06B6D4;
+      --accent-soft: rgba(6, 182, 212, 0.12);
+      --accent-glow: rgba(6, 182, 212, 0.22);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(6, 182, 212, 0.08), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.05), transparent 40%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      object-fit: cover;
+    }
+
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #06131F;
+      box-shadow: 0 4px 18px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-avatar-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      text-align: center;
+      width: 230px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-avatar-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-avatar-card .handle {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-avatar-card .uni {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--border-accent);
+    }
+
+    /* Grid & Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.9rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .badge-active {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .badge-wip {
+      background: rgba(6, 182, 212, 0.14);
+      color: var(--accent);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+    }
+
+    .badge-planned {
+      background: rgba(245, 158, 11, 0.14);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.35rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Matrix */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.9rem;
+      padding: 1.4rem;
+    }
+
+    .skill-box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-box p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.75rem;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .contact-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .copy-btn {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+      border-radius: 0.35rem;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.73rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent);
+      color: #06131F;
+    }
+
+    footer {
+      padding: 2.25rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 0 2.5rem;
+      }
+      .hero-avatar-card {
+        width: 100%;
+        max-width: 260px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    @media (max-width: 768px) { .nav-inner { height: auto; min-height: 4.25rem; padding-top: 0.75rem; padding-bottom: 0.75rem; align-items: flex-start; flex-direction: column; gap: 0.75rem; } .nav-links { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; font-size: 0.82rem; } }
+</style>
+<meta content="#0B0F19" name="theme-color"/><meta content="Muataz Yahya | Robotics &amp; AI Engineering" property="og:title"/><meta content="A student portfolio focused on robotics, programming foundations, and documented learning." property="og:description"/><meta content="website" property="og:type"/><meta content="https://muatazy.github.io" property="og:url"/></head>
+<body>
+<header class="navbar">
+<div class="container nav-inner">
+<a class="brand" href="#top">
+<img alt="Muataz Yahya MY Monogram Avatar" class="brand-avatar" src="data:image/jpeg;base64,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"/>
+<span>Muataz Yahya</span>
+<span class="brand-tag">HITSZ · Robotics &amp; AI</span>
+</a>
+<nav aria-label="Primary Navigation" class="nav-links">
+<a href="#projects">Repositories &amp; Roadmap</a>
+<a href="#skills">Technical Stack</a>
+<a href="#about">Background</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main class="container" id="top">
+<section class="hero">
+<div>
+<div class="eyebrow">
+<span class="status-dot"></span>
+<span>2nd-Year Robotics &amp; AI Engineering @ HITSZ</span>
+</div>
+<h1>Building Foundations in <span>Robotics, C++ &amp; Intelligent Systems</span></h1>
+<p class="hero-lead">I am <strong>Muataz Yahya</strong>, a second-year Robotics &amp; Artificial Intelligence Engineering student at <a href="https://en.hitsz.edu.cn/" rel="noopener noreferrer" target="_blank">Harbin Institute of Technology, Shenzhen (HITSZ)</a>. I am strengthening my foundations in C++ and Python and documenting what I learn through small, clearly scoped steps.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="https://github.com/muatazy" rel="noopener" target="_blank">
+<span>View GitHub (@muatazy)</span>
+</a>
+<a class="btn btn-outline" href="#projects">Explore Projects &amp; Roadmap</a>
+<a class="btn btn-outline" href="#contact">Contact Details</a>
+</div>
+</div>
+<aside aria-label="Profile Summary Card" class="hero-avatar-card">
+<img alt="MY Monogram Logo for Muataz Yahya" src="data:image/jpeg;base64,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"/>
+<strong style="font-size: 1.05rem; display: block;">Muataz Yahya</strong>
+<span class="handle">@muatazy</span>
+<p class="uni">HIT Shenzhen · Class of 2028<br/>Shenzhen, China</p>
+</aside>
+</section>
+<section id="projects">
+<div class="section-header">
+<div>
+<h2 class="section-title">Selected work &amp; learning</h2>
+<p class="section-subtitle">Public work is linked directly; unfinished and private work is labeled clearly.</p>
+</div>
+<div aria-label="Filter work by status" class="filter-bar" role="group"><button class="filter-btn active" data-filter="all" type="button">All</button><button class="filter-btn" data-filter="active" type="button">Public</button><button class="filter-btn" data-filter="wip" type="button">In progress</button></div>
+</div>
+<div class="grid-3" id="project-grid"><article class="card" data-category="wip"><div><div class="card-top"><h3 class="card-title">C++ Fundamentals</h3><span class="badge badge-wip">Early work · Private</span></div><p class="card-desc">A private learning project with a small in-memory inventory CLI. It is not presented as a completed public system.</p></div><div><div class="tag-list"><span class="tag">C++17</span><span class="tag">CLI</span><span class="tag">Learning</span></div><span aria-label="Private work in progress" class="card-link">Private workspace · not publicly linked</span></div></article><article class="card" data-category="active"><div><div class="card-top"><h3 class="card-title">HITSZ Robotics &amp; AI Labs</h3><span class="badge badge-active">Learning repository</span></div><p class="card-desc">A public repository for coursework notes and learning material. New content will be added as it is documented and appropriate to share.</p></div><div><div class="tag-list"><span class="tag">Coursework</span><span class="tag">Robotics &amp; AI</span><span class="tag">HITSZ</span></div><a class="card-link" href="https://github.com/muatazy/hitsz-robotics-ai-labs" rel="noopener noreferrer" target="_blank">Open learning repository →</a></div></article><article class="card" data-category="active"><div><div class="card-top"><h3 class="card-title">Portfolio source</h3><span class="badge badge-active">Live</span></div><p class="card-desc">The source code for this personal portfolio website.</p></div><div><div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div><a class="card-link" href="https://github.com/muatazy/muatazy.github.io" rel="noopener noreferrer" target="_blank">View source code →</a></div></article></div>
+</section>
+<section id="skills">
+<div class="section-header">
+<div>
+<h2 class="section-title">Learning focus</h2>
+<p class="section-subtitle">Interests and study areas, not a claim of professional expertise.</p>
+</div>
+</div>
+<div class="skills-grid"><div class="skill-box"><h3><span style="color: var(--accent);">●</span>Currently learning</h3><p>Building programming foundations at a steady pace.</p><div class="tag-list"><span class="tag">C++</span><span class="tag">Python</span></div></div><div class="skill-box"><h3><span style="color: var(--accent);">●</span>Academic direction</h3><p>My university major and current academic context.</p><div class="tag-list"><span class="tag">Robotics</span><span class="tag">Artificial Intelligence</span><span class="tag">Engineering</span></div></div><div class="skill-box"><h3><span style="color: var(--accent);">●</span>Areas of interest</h3><p>Topics I hope to explore through future, documented work.</p><div class="tag-list"><span class="tag">Autonomous systems</span><span class="tag">Computer vision</span><span class="tag">Intelligent control</span></div></div></div>
+</section>
+<section id="about">
+<div class="section-header">
+<div>
+<h2 class="section-title">Education &amp; approach</h2>
+<p class="section-subtitle">A clear academic focus and a careful, evidence-led way of learning.</p>
+</div>
+</div>
+<div class="grid-3"><div class="card"><div><div class="card-top"><h3 class="card-title">HITSZ</h3><span class="badge badge-active">Second year</span></div><p class="card-desc">Robotics &amp; Artificial Intelligence Engineering student at Harbin Institute of Technology, Shenzhen.</p></div><a class="card-link" href="https://en.hitsz.edu.cn/" rel="noopener noreferrer" target="_blank">Official university website →</a></div><div class="card"><div><div class="card-top"><h3 class="card-title">Engineering approach</h3><span class="badge badge-wip">In progress</span></div><p class="card-desc">Learn the fundamentals, build small examples, test them, and describe limitations honestly.</p></div><span style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono);">Shenzhen, China</span></div></div>
+</section>
+<section id="contact" style="border-bottom: none;">
+<div class="section-header">
+<div>
+<h2 class="section-title">Connect</h2>
+<p class="section-subtitle">For academic, internship, or engineering collaboration enquiries.</p>
+</div>
+</div>
+<div class="contact-grid"><div class="contact-item"><span class="contact-label">Email</span><div class="contact-value"><a href="mailto:muataz7705@gmail.com" style="color: var(--accent);">muataz7705@gmail.com</a></div></div><div class="contact-item"><span class="contact-label">GitHub</span><div class="contact-value"><a href="https://github.com/muatazy" rel="noopener noreferrer" style="color: var(--accent);" target="_blank">github.com/muatazy</a></div></div><div class="contact-item"><span class="contact-label">Portfolio source</span><div class="contact-value"><a href="https://github.com/muatazy/muatazy.github.io" rel="noopener noreferrer" style="color: var(--accent);" target="_blank">View repository</a></div></div></div>
+</section>
+</main>
+<footer>
+<div class="container">
+<p>© 2026 Muataz Yahya · Robotics &amp; Artificial Intelligence Engineering · HITSZ</p>
+</div>
+</footer>
+<script>
+    // Project category filter
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll("#project-grid .card");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+        projectCards.forEach((card) => {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Copy to clipboard buttons
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const val = btn.getAttribute("data-copy");
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(val);
+        }
+        const original = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 1500);
+      });
+    });
+  </script>
 </body>
 </html>
